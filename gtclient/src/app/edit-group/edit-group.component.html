@@ -1,0 +1,100 @@
+  <div class="group-container">
+    <h2 class="component-title">Edit Group</h2>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <table class="table table-striped">
+            <tr>
+                <td><label for="groupId">Group Id:</label></td>
+                <td><input type="text" formControlName="groupId"
+                  placeholder="Group Name" name="groupId" class="form-control"
+                  id="groupId" readonly="true" ></td>
+              </tr>
+              <tr>
+                  <td><label for="groupLoginName">Group Login Name:</label></td>
+                  <td><input type="text" formControlName="groupLoginName"
+                    placeholder="Group Login Name" name="groupLoginName"
+                    class="form-control" id="groupLoginName" readonly="true"></td>
+                        </tr>
+          <tr>
+            <td><label for="groupName">Group Name:</label></td>
+            <td><input type="text" formControlName="groupName"
+              placeholder="Group Name" name="groupName" class="form-control"
+              id="groupName" ></td>
+          </tr>
+          
+                  <tr>
+                    <td><label for="groupDescription">Group description:</label></td>
+                    <td><input type="text" formControlName="groupDescription"
+                      placeholder="groupDescription" name="groupDescription"
+                      class="form-control" id="groupDescription"></td>
+                          </tr>
+                  
+          
+          
+          <tr>
+            <td><label for="password">Admin Password:</label></td>
+            <td><input type="password" formControlName="password"
+              placeholder="password" name="password"
+              class="form-control" id="password"></td>
+          </tr>
+          <tr>
+            <td><label for="expectedExpence">expectedExpence:</label></td>
+            <td><input type="text" formControlName="expectedExpence"
+              placeholder="expectedExpence" name="expectedExpence" class="form-control"
+              id="expectedExpence"></td>
+          </tr>
+          
+        </table>
+        
+          </div>
+          <form [formGroup]="userForm" (ngSubmit)="onAddUser()">
+              <div class="form-group">
+                <table class="table table-striped">
+                    <tr><td>
+                       <label for="users"> Add Users List :</label>
+                        </td>
+                        <td>
+                           <input type="text" class="form-control" placeholder="Enter user name" formControlName="userName" />
+                       </td>
+                      <td>
+                         <button class="btn btn-success">Add</button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            
+          
+              </form>
+              <form [formGroup]="userListForm" (ngSubmit)="onDeleteUser(user)">
+                  <div class="form-group">
+                    <table class="table table-striped">
+             <ul>       
+               <li *ngFor="let user of userList" class="list-group-item">
+                  <tr><td> <span> {{ user }} </span></td>
+                  <td> <button class="btn btn-success" (click)="onDeleteUser(user)">delete</button></td> </tr>
+               </li>
+           </ul>
+          </table>
+        </div>
+    
+  
+      </form>
+      
+        <div>
+        <table>
+          
+          <tr>
+            <td>
+              <button class="btn btn-success">Submit</button>
+            </td>
+            <td>
+              <button class="btn btn-success" (click)="onCancel()">Cancel</button>
+            </td>
+          </tr>
+  
+        
+        </table>
+      </div>
+      
+    </form>
+  </div>

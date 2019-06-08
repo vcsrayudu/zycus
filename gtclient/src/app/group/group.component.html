@@ -1,0 +1,94 @@
+<div class="list-container">
+    <h2 class="component-title">Group Desciption: {{group.groupDescription}}</h2>
+    <h2 class="component-title">Expence Report</h2>
+    <button class="create-button" (click)="createTransaction()">Add Expence</button>
+    <button class="create-button" (click)="settlementTrx()">Make Settlement</button>
+    <button class="create-button" (click)="editGroup()">Edit Group</button>
+    
+  <table class="table">
+    <thead>
+      <tr class="hover-red">
+  
+        <th>User Name</th>
+        <th>Paid Expence</th>
+      
+        <th>Owes</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let userEntry of userExpence | keyvalue" class="hover-green">
+  
+            <td>{{userEntry.key}}</td>
+            <td>{{userEntry.value}}</td>
+            <td>{{userEntry.value-headExpence}}</td>
+            
+            
+      
+            
+          </tr>
+      <!--tr *ngFor="let user of group.userList" class="hover-green">
+  
+        <td>{{user}}</td>
+        
+        
+  
+        
+      </tr-->
+      
+    </tbody>
+    <thead>
+        <tr class="hover-red">
+    
+          <th>Expeced Expence : {{group.expectedExpence}}</th>
+          <th>Actual Expence : {{group.actualExpence}}</th>
+          <th>Per Head Expence : {{headExpence}}</th>
+          
+        </tr>
+      </thead>
+    </table>
+    
+  </div>
+  <div class="listall-container">
+    <h2 class="component-title">Transaction Details</h2>
+   
+   
+  <table class="table">
+    <thead>
+      <tr class="hover-red">
+  
+        <th>TrxId</th>
+        <th>Expence</th>
+        <th>Payer</th>
+        <th>Cause</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trx of group.transactions" class="hover-green">
+  
+        <td>{{trx.transId}}</td>
+        <td>{{trx.expence}}</td>
+        <td>{{trx.userId}}</td>
+        <td>{{trx.cause}}</td>
+        
+        <td>{{trx.date}}</td>
+        
+        
+  
+        <td>
+          <button  (click)="editTrx(trx)"
+            >Edit</button>
+        </td>
+        <td><button  (click)="deleteTrx(trx)"
+                        >Delete</button></td>
+               
+        
+      </tr>
+    </tbody>
+    </table>
+   
+    
+  </div>

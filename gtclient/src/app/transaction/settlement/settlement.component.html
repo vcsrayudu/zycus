@@ -1,0 +1,55 @@
+<div class="trx-container">
+    <h2 class="component-title">Create Settlement Transaction</h2>
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <table class="table table-striped">
+        
+          <tr>
+            <td><label for="groupId">Group Name:</label></td>
+            <td><input type="text" formControlName="groupId"
+              name="groupId"
+              class="form-control" id="groupId" readonly="true"></td>
+                  </tr>
+                  <tr>
+                      <td><label for="cause">Expence cause:</label></td>
+                      <td><input type="cause" formControlName="cause"
+                        placeholder="Settlement" name="cause"
+                        class="form-control" id="cause" readonly="true"></td>
+                    </tr>
+                  <tr>
+            <td><label for="userId">User Name:</label></td>
+            <td><select class="form-control" name="userId"
+              formControlName="userId" id="userId" required>
+                <option *ngFor="let user of userList">{{user}}</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td><label for="expence">Expence Amount:</label></td>
+            <td><input type="text" formControlName="expence"
+              placeholder="Expence Amount" name="expence" class="form-control"
+              id="expence"></td>
+          </tr>
+          
+          
+          <tr>
+            <td><label for="date">Epence Paid Date:</label></td>
+            <td><input type="date" formControlName="date"
+              placeholder="Epence Paid Date" name="date" class="form-control"
+              id="date"></td>
+          </tr>
+          
+          <tr>
+            <td>
+              <button class="btn btn-success">Submit</button>
+            </td>
+            <td>
+              <button class="btn btn-success" (click)="onCancel()">Cancel</button>
+            </td>
+          </tr>
+  
+  
+        </table>
+      </div>
+    </form>
+  </div>
+  
